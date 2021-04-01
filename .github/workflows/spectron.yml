@@ -1,10 +1,10 @@
-name: Build/release
+name: Build/spectron
 
 on: 
   push:
 
 jobs:
-  release:
+  spectron:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
         run: yarn install --network-timeout 1000000 # allows to run without network error
 
       - name: build
-        run: yarn build
+        run: yarn build:github
         env:
           REACT_APP_GRAASP_API_HOST: ${{secrets.REACT_APP_GRAASP_API_HOST}}
           REACT_APP_GRAASP_HOST: ${{secrets.REACT_APP_GRAASP_HOST}}
