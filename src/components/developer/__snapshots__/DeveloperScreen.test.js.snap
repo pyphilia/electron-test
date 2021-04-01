@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DeveloperScreen /> renders correctly 1`] = `
+<withI18nextTranslation(WithStyles(Connect(Main)))
+  id="developerMain"
+>
+  <div
+    className="developer"
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="screenTitle"
+      variant="h4"
+    >
+      Developer
+    </WithStyles(ForwardRef(Typography))>
+    <br />
+    <WithStyles(Banner)
+      text="Danger Zone! Proceed with caution as changes to this section might lead to data loss."
+      type="error"
+    />
+    <Connect(withI18nextTranslation(WithStyles(DatabaseEditor))) />
+  </div>
+</withI18nextTranslation(WithStyles(Connect(Main)))>
+`;
