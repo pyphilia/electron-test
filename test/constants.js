@@ -2,8 +2,8 @@ import path from 'path';
 
 export const EXPORT_FILEPATH = path.join(__dirname, './tmp/exportSpace');
 
-export const DEFAULT_GLOBAL_TIMEOUT = 40000;
-export const TOOLTIP_FADE_OUT_PAUSE = 10000;
+export const DEFAULT_GLOBAL_TIMEOUT = 140000;
+export const TOOLTIP_FADE_OUT_PAUSE = 0;
 export const INPUT_TYPE_PAUSE = 2000;
 export const VISIT_SPACE_PAUSE = 5000;
 export const OPEN_SAVED_SPACE_PAUSE = 2000;

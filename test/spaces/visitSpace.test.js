@@ -97,7 +97,8 @@ export const visitAndSaveSpaceById = async (client, id) => {
 
   console.log('ok');
   await client.pause(SAVE_SPACE_PAUSE);
-  await client.pause(TOOLTIP_FADE_OUT_PAUSE);
+  console.log('pauae1');
+  console.log('paus2');
 };
 
 // check home phase of given space when preview

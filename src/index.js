@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
 import * as Sentry from '@sentry/browser';
-import ReduxToastr from 'react-redux-toastr';
 import { Detector } from 'react-detect-offline';
 import { I18nextProvider } from 'react-i18next';
 import katex from 'katex';
@@ -41,11 +40,6 @@ ReactDOM.render(
       <Detector
         render={({ online }) => (
           <>
-            <ReduxToastr
-              transitionIn="fadeIn"
-              preventDuplicates
-              transitionOut="fadeOut"
-            />
             <App connexionStatus={online} />
           </>
         )}
