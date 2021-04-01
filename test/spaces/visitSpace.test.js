@@ -39,7 +39,6 @@ import {
   INPUT_TYPE_PAUSE,
   VISIT_SPACE_PAUSE,
   SAVE_SPACE_PAUSE,
-  TOOLTIP_FADE_OUT_PAUSE,
   DEFAULT_GLOBAL_TIMEOUT,
   LOAD_PHASE_PAUSE,
   OPEN_TOOLS_PAUSE,
@@ -73,16 +72,13 @@ const testTextOfElement = async (client, selector, text) => {
 };
 
 export const visitSpaceById = async (client, id) => {
-  console.log('visit');
   await menuGoToVisitSpace(client);
 
   // input space id
-  console.log('set value');
   await client.setValue(`#${VISIT_INPUT_ID}`, id);
   await client.pause(INPUT_TYPE_PAUSE);
   const value = await client.getValue(`#${VISIT_INPUT_ID}`);
   expect(value).to.equal(id);
-  console.log('blick');
 
   await client.click(`#${VISIT_BUTTON_ID}`);
   await client.pause(VISIT_SPACE_PAUSE);
@@ -91,14 +87,9 @@ export const visitSpaceById = async (client, id) => {
 export const visitAndSaveSpaceById = async (client, id) => {
   await visitSpaceById(client, id);
 
-  console.log('save');
   // save space
   await client.click(`.${SPACE_SAVE_ICON_CLASS}`);
-
-  console.log('ok');
   await client.pause(SAVE_SPACE_PAUSE);
-  console.log('pauae1');
-  console.log('paus2');
 };
 
 // check home phase of given space when preview

@@ -21,35 +21,28 @@ describe('Delete a space', function() {
     return closeApplication(app);
   });
 
-  it.only(
+  it(
     'Deleting from card removes space from Saved Spaces',
     mochaAsync(async () => {
       const {
         space: { id },
       } = SPACE_ATOMIC_STRUCTURE;
 
-      console.log('wekjfn');
-
       app = await createApplication({ showMessageDialogResponse: 1 });
 
       const { client } = app;
 
-      console.log('wetrgdfvkjfn');
       await userSignIn(client, USER_GRAASP);
 
-      console.log('xswfrg');
       await visitAndSaveSpaceById(client, id);
 
-      console.log('vcde');
       await menuGoToSavedSpaces(client);
 
-      console.log('hrtgdfv');
       await client.click(
         `#${buildSpaceCardId(id)} .${SPACE_DELETE_BUTTON_CLASS}`
       );
       await client.pause(DELETE_SPACE_PAUSE);
 
-      console.log('zhrtgfd');
       // card not in saved spaces
       const card = await client.element(`#${buildSpaceCardId(id)}`);
       expect(card.value).to.not.exist;

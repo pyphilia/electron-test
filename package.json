@@ -69,7 +69,7 @@
     "version": "git add CHANGELOG.md && standard-version -a",
     "stop": "killall -SIGINT node",
     "mocha": "mkdirp test/tmp && concurrently \"env-cmd -f ./.env.test react-scripts start\" \"wait-on http://localhost:3000 && mocha --exit --require @babel/register \"test/menu.test.js\"\"",
-    "mocha:action":  "xvfb-maybe --server-args=\"-screen 0 1024x768x24\" -- mocha  --exit --require @babel/register \"test/**/deleteSpace.test.js\""
+    "mocha:action":  "xvfb-maybe --server-args=\"-screen 0 1024x768x24\" -- mocha  --exit --require @babel/register \"test/**/*.test.js\""
   },
   "dependencies": {
     "@material-ui/core": "4.11.0",
