@@ -97,6 +97,10 @@ export const menuGoToVisitSpace = async client => {
   await menuGoTo(client, VISIT_MENU_ITEM_ID, VISIT_MAIN_ID);
 };
 
+export const menuGoToRandom = async client => {
+  await menuGoTo(client, 'randomid', 'elementToExpectId');
+};
+
 export const menuGoToLoadSpace = async client => {
   await menuGoTo(client, LOAD_MENU_ITEM_ID, LOAD_MAIN_ID);
 };

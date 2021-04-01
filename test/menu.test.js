@@ -5,6 +5,7 @@ import {
   userSignIn,
   menuGoToSpacesNearby,
   menuGoToVisitSpace,
+  menuGoToRandom,
 } from './utils';
 import { createApplication, closeApplication } from './application';
 import { DEFAULT_GLOBAL_TIMEOUT } from './constants';
@@ -32,6 +33,7 @@ describe('Menu Scenarios', function() {
       const { client } = app;
       await menuGoToSpacesNearby(client);
       await menuGoToVisitSpace(client);
+      await menuGoToRandom(client);
     })
   );
 });
