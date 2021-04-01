@@ -405,7 +405,7 @@ export const checkSpaceCardLayout = async (
   expect(syncIcon.value).to.exist;
 };
 
-describe('Visit Space Scenarios', function() {
+describe.skip('Visit Space Scenarios', function() {
   this.timeout(DEFAULT_GLOBAL_TIMEOUT);
   let app;
   let globalUser;
