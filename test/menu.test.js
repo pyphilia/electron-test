@@ -33,7 +33,6 @@ describe('Menu Scenarios', function() {
       const { client } = app;
       await menuGoToSpacesNearby(client);
       await menuGoToVisitSpace(client);
-      await menuGoToRandom(client);
     })
   );
 });

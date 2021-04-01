@@ -8,18 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Install headless dependencies
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y xvfb \
-      #     libgbm1 \
-      #     libxss1 \
-      #     libnss3 \
-      #     libgtk-3-dev \
-      #     libasound2-dev \
-      #     unzip 
-      #     sudo rm -rf /var/lib/apt/lists/*
-
       - name: Check out Git repository
         uses: actions/checkout@v1
 
@@ -36,7 +24,6 @@ jobs:
         env:
           REACT_APP_GRAASP_API_HOST: ${{secrets.REACT_APP_GRAASP_API_HOST}}
           REACT_APP_GRAASP_HOST: ${{secrets.REACT_APP_GRAASP_HOST}}
-          GOOGLE_API_KEY: ${{secrets.GOOGLE_API_KEY}}
 
       - name: Run Spectron
         run: xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' yarn mocha:action
