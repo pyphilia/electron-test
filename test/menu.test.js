@@ -5,13 +5,12 @@ import {
   userSignIn,
   menuGoToSpacesNearby,
   menuGoToVisitSpace,
-  menuGoToRandom,
 } from './utils';
 import { createApplication, closeApplication } from './application';
 import { DEFAULT_GLOBAL_TIMEOUT } from './constants';
 import { USER_GRAASP } from './fixtures/users';
 
-describe('Menu Scenarios', function() {
+describe.only('Menu Scenarios', function() {
   this.timeout(DEFAULT_GLOBAL_TIMEOUT);
   let app;
   before(

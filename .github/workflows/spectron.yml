@@ -6,12 +6,11 @@ on:
 jobs:
   spectron:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out Git repository
+      - name: check out git repository
         uses: actions/checkout@v1
 
-      - name: Install Node.js, NPM and Yarn
+      - name: install node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -24,6 +23,49 @@ jobs:
         env:
           REACT_APP_GRAASP_API_HOST: ${{secrets.REACT_APP_GRAASP_API_HOST}}
           REACT_APP_GRAASP_HOST: ${{secrets.REACT_APP_GRAASP_HOST}}
+          REACT_APP_SHOW_NOTIFICATIONS: false
 
-      - name: Run Spectron
+      - name: spectron
         run: xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' yarn mocha:action
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: run-spectron
+          parallel: true
+
+
+  react-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out git repository
+        uses: actions/checkout@v1
+
+      - name: install node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: yarn
+        run: yarn install --network-timeout 1000000 # allows to run without network error
+
+      - name: react test
+        run: yarn test:ci
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: run-react-test
+          parallel: true
+
+  finish:
+    needs: [spectron, react-test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel-finished: true
