@@ -22,7 +22,7 @@ const searchQuery = async (client, query) => {
   await client.pause(SPACE_SEARCH_PAUSE);
 };
 
-describe.only('Space Search Scenarios', function() {
+describe('Space Search Scenarios', function() {
   this.timeout(DEFAULT_GLOBAL_TIMEOUT);
   let app;
   beforeEach(
